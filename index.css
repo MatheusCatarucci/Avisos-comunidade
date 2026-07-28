@@ -43,6 +43,8 @@ body {
         var(--background);
 
     color: var(--text);
+
+    overflow-x: hidden;
 }
 
 
@@ -71,10 +73,13 @@ header h1 {
     font-weight: 700;
 
     letter-spacing: 2px;
+
+    overflow-wrap: break-word;
 }
 
 header img {
     width: 120px;
+    max-width: 100%;
     height: auto;
     border-radius: 7px;
     display: flex;
@@ -219,6 +224,7 @@ header img {
     display: block;
 
     width: 100%;
+    max-width: 100%;
 
     aspect-ratio: 16 / 10;
 
@@ -247,6 +253,9 @@ header img {
 
     font-size: 16px;
     font-weight: 600;
+
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .bloco-info p {
@@ -254,6 +263,9 @@ header img {
 
     font-size: 12px;
     line-height: 1.5;
+
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 
@@ -289,6 +301,27 @@ header img {
         max-width: 330px;
 
         margin-top: 30px;
+    }
+
+}
+
+
+@media (max-width: 360px) {
+
+    .grade {
+        gap: 15px;
+    }
+
+    .bloco {
+        padding: 10px;
+    }
+
+    .bloco-info h2 {
+        font-size: 15px;
+    }
+
+    .bloco-info p {
+        font-size: 11px;
     }
 
 }
