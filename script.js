@@ -4,6 +4,7 @@ const titulo = document.getElementById('titulo')
 setInterval(() => {
   titulo.classList.toggle('aviso');
 }, 250);
+
 // Atribuindo algumas variáveis
 const lista = document.getElementById('lista')
 const input_tarefa = document.getElementById('tarefa')

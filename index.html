@@ -4,27 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste</title>
+
+    <title>Comunidade 5</title>
+
+    <link rel="shortcut icon" href="assets/icon.jpg" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1 id="titulo">AVISOS</h1>
-    <ul id="lista">
-        <li class="itens">
-            <p>Convivência</p>
-        </li>
-        <li class="itens">
-            <p>Perscrutação</p>
-        </li>
-    </ul>
+    <header>
+        <img src="assets/comunidade reunida.png">
 
-    <input type="text" id="tarefa" placeholder="Digite um novo aviso...">
-    <button id="btn-add">Adicionar</button>
-    <button id="btn-remove">Remover</button>
+        <nav class="links-header">
+            <a href="">Sobre</a>
+            <a href="">Suporte</a>
+            <a href="">Quero participar</a>
+        </nav>
+    </header>
+
+    <main class="main">
+
+        <section class="grade">
+
+            <div class="bloco">
+                <a href="convivencia.html">
+                    <img
+                        src="./assets/convivencia.jpg"
+                        alt="Imagem da página de convivência"
+                    >
+                </a>
+
+                <div class="bloco-info">
+                    <h2>Convivências</h2>
+                    <p>Data das próximas convivências.</p>
+                </div>
+            </div>
+
+            <div class="bloco">
+                <a href="avisos.html">
+                    <img
+                        src="./assets/avisos.png"
+                        alt="Imagem da página de avisos"
+                    >
+                </a>
+
+                <div class="bloco-info">
+                    <h2>Avisos</h2>
+                    <p>Confira os avisos da comunidade.</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
+
 </body>
 
 </html>
