@@ -39,6 +39,8 @@ body {
         var(--background);
 
     color: var(--text);
+
+    overflow-x: hidden;
 }
 
 
@@ -67,10 +69,13 @@ header h1 {
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 2px;
+
+    overflow-wrap: break-word;
 }
 
 header img {
     width: 120px;
+    max-width: 100%;
     height: auto;
     border-radius: 7px;
     display: flex;
@@ -202,6 +207,9 @@ header img {
 
     font-size: 15px;
     font-weight: 600;
+
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 
@@ -297,6 +305,8 @@ header img {
     align-items: center;
 
     gap: 12px;
+
+    flex-wrap: wrap;
 }
 
 
@@ -381,4 +391,23 @@ header img {
         width: 100%;
         max-width: 330px;
     }
+}
+
+
+@media (max-width: 360px) {
+
+    #lista {
+        padding: 14px;
+    }
+
+    #lista .itens {
+        padding: 14px 16px;
+    }
+
+    .btn-form button {
+        padding: 10px 14px;
+
+        font-size: 12px;
+    }
+
 }
