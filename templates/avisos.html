@@ -1,45 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/icon.jpg" type="image/png">
-    <link rel="stylesheet" href="style.css">
+
     <title>Comunidade 5 - Avisos</title>
+
+    <link rel="shortcut icon" href="/static/assets/icon.jpg" type="image/png">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
 <body>
+
     <header>
-        <a href="index.html">
-            <img src="assets/comunidade reunida.png" alt="Logo Comunidade 5">
+        <a href="/">
+            <img src="/static/assets/comunidade reunida.png" alt="Logo Comunidade 5">
         </a>
+
         <div class="links-header">
-            <a href="/templates/index.html">Início</a>
+            <a href="/">Início</a>
             <a href="">Sobre</a>
             <a href="">Suporte</a>
             <a href="">Quero participar</a>
         </div>
     </header>
+
     <div class="main">
+
         <ol id="lista">
+
+            {% for aviso in avisos %}
             <li class="itens">
-                <p>Convivência</p>
+                <p>{{ aviso.aviso }}</p>
             </li>
+            {% else %}
             <li class="itens">
-                <p>Perscrutação</p>
+                <p>Nenhum aviso cadastrado.</p>
             </li>
+            {% endfor %}
+
         </ol>
 
         <div class="form">
             <input type="text" id="tarefa" placeholder="">
+
             <div class="btn-form">
                 <button id="btn-add">Adicionar</button>
                 <button id="btn-remove">Remover</button>
             </div>
         </div>
+
     </div>
-    <script src="script.js"></script>
+
+    <script src="/static/js/script.js"></script>
+
 </body>
 
 </html>
