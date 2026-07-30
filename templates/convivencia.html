@@ -43,12 +43,12 @@
 
             <article class="convivencia">
                 <div class="data">
-                    <span class="dia">{{ convivencia.data.strftime('%d') }}</span>
-                    <span class="mes">{{ convivencia.data.strftime('%b').upper() }}</span>
+                    <span class="dia">{{ "%02d"|format(convivencia.data.day) }}</span>
+                    <span class="mes">{{ convivencia.mes_abrev }}</span>
                 </div>
 
                 <div class="convivencia-info">
-                    <h2>Convivência de {{ convivencia.data.strftime('%B').capitalize() }}</h2>
+                    <h2>Convivência de {{ convivencia.mes }}</h2>
 
                     <p>
                         {{ convivencia.descricao }}

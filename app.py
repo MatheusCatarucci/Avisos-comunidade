@@ -1,17 +1,44 @@
-from fastapi import FastAPI, Form, Request
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from model import *
-import locale
-import uvicorn
 
 app = FastAPI()
 
-locale.setlocale(locale.LC_TIME, "pt_BR.UTF-8")  # Linux/macOS
-locale.setlocale(locale.LC_TIME, "Portuguese_Brazil.1252") # Windows
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
+
+MESES = {
+    1: "Janeiro",
+    2: "Fevereiro",
+    3: "Março",
+    4: "Abril",
+    5: "Maio",
+    6: "Junho",
+    7: "Julho",
+    8: "Agosto",
+    9: "Setembro",
+    10: "Outubro",
+    11: "Novembro",
+    12: "Dezembro",
+}
+
+MESES_ABREV = {
+    1: "JAN",
+    2: "FEV",
+    3: "MAR",
+    4: "ABR",
+    5: "MAI",
+    6: "JUN",
+    7: "JUL",
+    8: "AGO",
+    9: "SET",
+    10: "OUT",
+    11: "NOV",
+    12: "DEZ",
+}
+
 
 # ──────────────────────────────────────────
 # CONSULTAR CONVIVÊNCIAS
@@ -20,11 +47,16 @@ templates = Jinja2Templates(directory="templates")
 async def convivencias(request: Request):
     convivencias = consultar_convivencias()
 
+    for convivencia in convivencias:
+        convivencia["mes"] = MESES[convivencia["data"].month]
+        convivencia["mes_abrev"] = MESES_ABREV[convivencia["data"].month]
+
     return templates.TemplateResponse(
         request=request,
         name="convivencia.html",
         context={"convivencias": convivencias}
     )
+
 
 # ──────────────────────────────────────────
 # CONSULTAR AVISOS
@@ -36,16 +68,16 @@ async def avisos(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="avisos.html",
-        context={"avisos":avisos}
+        context={"avisos": avisos}
     )
 
+
+# ──────────────────────────────────────────
+# HOME
+# ──────────────────────────────────────────
 @app.get("/", response_class=HTMLResponse)
-async def home(request:Request):
+async def home(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="index.html"
     )
-
-#if __name__ == "__main__":
-    # Importante: ajuste o "app:app" caso o nome deste arquivo não seja app.py
-#    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
