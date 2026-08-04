@@ -1,4 +1,0 @@
-fastapi[standard]
-jinja2
-mysql-connector-python
-python-dotenv
