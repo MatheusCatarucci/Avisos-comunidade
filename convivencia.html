@@ -14,59 +14,47 @@
 <body>
 
     <header>
-        <a href="/">
-            <img src="/static/assets/LOGO 4 SEM FUNDO.png" alt="Logo Paróquia Santo Antônio">
+
+        <a href="index.html">
+            <img src="/static/assets/LOGO 4 SEM FUNDO.png" alt="Logo Comunidade 5">
         </a>
 
         <nav class="links-header">
-            <a href="/">Início</a>
+            <a href="index.html">Início</a>
             <a href="">Sobre</a>
             <a href="">Suporte</a>
-            <a href="">Quero participar</a>
         </nav>
+
     </header>
+
 
     <main class="main">
 
-        <section class="titulo">
+        <section class="conteudo">
+
             <h1>Próximas Convivências</h1>
 
             <p>
-                Confira as próximas datas de convivência
-                da nossa comunidade.
+                Confira as próximas atividades da comunidade.
             </p>
-        </section>
 
-        <section class="convivencias">
 
-            {% for convivencia in convivencias %}
+            <ol id="lista-convivencias">
+                
+            </ol>
 
-            <article class="convivencia">
-                <div class="data">
-                    <span class="dia">{{ "%02d"|format(convivencia.data.day) }}</span>
-                    <span class="mes">{{ convivencia.mes_abrev }}</span>
-                </div>
-
-                <div class="convivencia-info">
-                    <h2>Convivência de {{ convivencia.mes }}</h2>
-
-                    <p>
-                        {{ convivencia.descricao }}
-                    </p>
-
-                    <span class="local">
-                        📍 {{ convivencia.local }}
-                    </span>
-                </div>
-            </article>
-
-            {% endfor %}
 
         </section>
 
     </main>
 
-    <script src="/static/js/script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="/static/js/supabase.js"></script>
+
+    <script src="/static/js/convivencia.js"></script>
+
 
 </body>
 
