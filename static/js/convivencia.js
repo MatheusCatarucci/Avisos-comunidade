@@ -1,5 +1,8 @@
 async function carregarConvivencias() {
 
+    const lista = document.getElementById("lista-convivencias");
+
+
     const { data, error } = await supabaseClient
         .from("convivencias")
         .select("*")
@@ -7,27 +10,90 @@ async function carregarConvivencias() {
 
 
     if (error) {
-        console.log(error);
+
+        console.error(error);
+
+        lista.innerHTML = `
+            <li>
+                Erro ao carregar convivências.
+            </li>
+        `;
+
         return;
     }
 
 
-    const lista = document.querySelector("#lista-convivencias");
+    lista.innerHTML = "";
 
 
-    data.forEach(convivencia => {
+    data.forEach(item => {
+
+
+        const dataEvento = new Date(item.data);
+
+
+        const dia = dataEvento
+            .getDate()
+            .toString()
+            .padStart(2, "0");
+
+
+        const mes = dataEvento
+            .toLocaleDateString("pt-BR", {
+                month: "short"
+            })
+            .replace(".", "")
+            .toUpperCase();
+
+
 
         lista.innerHTML += `
-            <li>
-                <strong>${convivencia.data}</strong>
-                <br>
-                ${convivencia.descricao}
-                <br>
-                Local: ${convivencia.local}
+
+            <li class="convivencia">
+
+
+                <div class="data">
+
+                    <span class="dia">
+                        ${dia}
+                    </span>
+
+                    <span class="mes">
+                        ${mes}
+                    </span>
+
+                </div>
+
+
+
+                <div class="convivencia-info">
+
+
+                    <h2>
+                        Convivência de ${mes}
+                    </h2>
+
+
+                    <p>
+                        ${item.descricao ?? "Descrição não informada"}
+                    </p>
+
+
+                    <span class="local">
+                        📍 ${item.local ?? "Local em breve"}
+                    </span>
+
+
+                </div>
+
+
             </li>
+
         `;
 
+
     });
+
 
 }
 
