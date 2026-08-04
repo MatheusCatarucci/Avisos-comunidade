@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
@@ -11,9 +10,7 @@
     font-family: "Montserrat", sans-serif;
 }
 
-
 :root {
-
     --background: #0f0f23;
 
     --surface: #17172f;
@@ -26,7 +23,6 @@
     --text-muted: #b7b5ca;
 
     --border: rgba(255, 255, 255, 0.08);
-
 }
 
 
@@ -35,7 +31,6 @@
 ========================= */
 
 body {
-
     min-height: 100vh;
 
     background:
@@ -47,7 +42,6 @@ body {
     color: var(--text);
 
     overflow-x: hidden;
-
 }
 
 
@@ -56,11 +50,9 @@ body {
 ========================= */
 
 header {
-
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
     padding: 30px 7%;
@@ -70,88 +62,67 @@ header {
     border-bottom: 1px solid var(--border);
 
     backdrop-filter: blur(10px);
-
 }
 
+
+/* LOGO */
 
 header img {
-
     width: 120px;
-
     max-width: 100%;
-
     height: auto;
-
     border-radius: 7px;
-
+    display: flex;
+    align-items: center;
 }
-
 
 
 /* =========================
-   LINKS HEADER
+   LINKS
 ========================= */
 
 .links-header {
-
     display: flex;
 
     align-items: center;
 
     gap: 30px;
-
 }
 
-
 .links-header a {
-
     position: relative;
 
     color: var(--text-muted);
 
     font-size: 14px;
-
     font-weight: 500;
 
     transition: 0.25s ease;
-
 }
-
 
 .links-header a:hover {
-
     color: var(--primary-light);
-
 }
 
-
 .links-header a::after {
-
     content: "";
 
     position: absolute;
 
     left: 0;
-
     bottom: -7px;
 
     width: 0;
-
     height: 2px;
 
     background: var(--primary);
 
     transition: 0.25s ease;
-
 }
-
 
 .links-header a:hover::after {
-
     width: 100%;
-
 }
-
 
 
 /* =========================
@@ -159,73 +130,52 @@ header img {
 ========================= */
 
 .main {
-
     width: 100%;
-
     max-width: 700px;
 
-    margin: 0 auto;
+    margin: 40px auto;
 
     padding: 20px;
-
 }
 
 
-
 /* =========================
-   CONTEÚDO
+   TÍTULO
 ========================= */
 
-.conteudo {
-
+.titulo {
     text-align: center;
 
     margin: 50px auto 35px;
-
 }
 
-
-.conteudo h1 {
-
+.titulo h1 {
     color: var(--text);
 
     font-size: 28px;
-
     font-weight: 700;
 
     margin-bottom: 10px;
-
 }
 
-
-.conteudo p {
-
+.titulo p {
     color: var(--text-muted);
 
     font-size: 14px;
-
 }
 
 
-
 /* =========================
-   LISTA DE CONVIVÊNCIAS
+   CONVIVÊNCIAS
 ========================= */
 
-#lista-convivencias {
-
+.convivencias {
     display: flex;
 
     flex-direction: column;
 
     gap: 18px;
-
-    list-style: none;
-
-    padding: 0;
-
 }
-
 
 
 /* =========================
@@ -233,12 +183,13 @@ header img {
 ========================= */
 
 .convivencia {
-
     display: flex;
 
     align-items: center;
 
     gap: 20px;
+
+    margin-bottom: 18px;
 
     padding: 18px;
 
@@ -251,29 +202,8 @@ header img {
     border-radius: 18px;
 
     box-shadow:
-
         0 20px 40px rgba(15, 15, 40, 0.3),
-
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
-
-
-    transition:
-
-        transform 0.25s ease,
-
-        border-color 0.25s ease,
-
-        box-shadow 0.25s ease;
-
-}
-
-
-.convivencia:hover {
-
-    transform: translateY(-4px);
-
-    border-color: rgba(139, 92, 246, 0.4);
-
 }
 
 
@@ -283,9 +213,7 @@ header img {
 ========================= */
 
 .data {
-
     min-width: 80px;
-
     height: 80px;
 
     flex-shrink: 0;
@@ -295,39 +223,35 @@ header img {
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     background: var(--primary);
 
     border-radius: 14px;
 
+    box-shadow:
+        0 8px 20px rgba(139, 92, 246, 0.25);
 }
 
-
 .dia {
-
     color: white;
 
     font-size: 28px;
-
     font-weight: 700;
 
+    line-height: 1;
 }
 
-
 .mes {
-
     margin-top: 5px;
 
     color: #ede9fe;
 
     font-size: 12px;
-
     font-weight: 600;
 
+    letter-spacing: 1px;
 }
-
 
 
 /* =========================
@@ -335,47 +259,47 @@ header img {
 ========================= */
 
 .convivencia-info {
-
     display: flex;
 
     flex-direction: column;
 
     gap: 7px;
 
+    min-width: 0;
 }
 
-
 .convivencia-info h2 {
-
     color: var(--text);
 
     font-size: 17px;
-
     font-weight: 600;
 
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
-
 .convivencia-info p {
-
     color: var(--text-muted);
 
     font-size: 13px;
 
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
-
 .local {
-
     color: var(--primary-light);
 
     font-size: 12px;
-
     font-weight: 500;
 
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
-
+li {
+    margin: 30px 0;
+}
 
 /* =========================
    RESPONSIVIDADE
@@ -383,131 +307,82 @@ header img {
 
 @media (max-width: 600px) {
 
-
     header {
-
         padding: 25px 20px;
 
         flex-direction: column;
 
         gap: 20px;
-
     }
-
 
     header img {
-
         width: 150px;
-
     }
 
-
     .links-header {
-
         gap: 18px;
 
         flex-wrap: wrap;
 
         justify-content: center;
-
     }
-
 
     .main {
-
         padding: 15px;
-
     }
 
-
-    .conteudo {
-
+    .titulo {
         margin-top: 30px;
-
     }
 
-
-    .conteudo h1 {
-
+    .titulo h1 {
         font-size: 23px;
-
     }
-
 
     .convivencia {
-
         padding: 15px;
 
         gap: 15px;
-
     }
-
 
     .data {
-
         min-width: 65px;
-
         height: 65px;
-
     }
-
 
     .dia {
-
         font-size: 23px;
-
     }
-
 
 }
 
 
-
 @media (max-width: 360px) {
 
-
     .convivencia {
-
         gap: 12px;
-
     }
-
 
     .data {
-
         min-width: 56px;
-
         height: 56px;
-
     }
-
 
     .dia {
-
         font-size: 20px;
-
     }
-
 
     .mes {
-
         font-size: 10px;
-
     }
-
 
     .convivencia-info h2 {
-
         font-size: 15px;
-
     }
-
 
     .convivencia-info p,
     .local {
-
         font-size: 11px;
-
     }
 
 }
